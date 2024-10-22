@@ -12,7 +12,7 @@ var DBConn *gorm.DB
 func Init() {
 
 	// Guanakan Ketika Deploy
-	dsn := "root:usAqtgbnkocGEpuLvBMjBcBDnbzztfFs@tcp(autorack.proxy.rlwy.net:24422)/railway?charset=utf8mb4&parseTime=True&loc=Local"
+	dsn := "root:edTyDluWiIGDqijgpDygEVvoqdPNXfzL@tcp(autorack.proxy.rlwy.net:24422)/railway?charset=utf8mb4&parseTime=True&loc=Local"
 
 	// dsn := os.Getenv("DB_USER") + ":" +
 	// 	os.Getenv("DB_PASS") + "@(" +
