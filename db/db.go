@@ -10,22 +10,17 @@ import (
 var DBConn *gorm.DB
 
 func Init() {
-
-	// Guanakan Ketika Deploy
-	dsn := "root:edTyDluWiIGDqijgpDygEVvoqdPNXfzL@tcp(autorack.proxy.rlwy.net:24422)/railway?charset=utf8mb4&parseTime=True&loc=Local"
-
-	// dsn := os.Getenv("DB_USER") + ":" +
-	// 	os.Getenv("DB_PASS") + "@(" +
-	// 	os.Getenv("DB_HOST") + ":" +
-	// 	os.Getenv("DB_PORT") + ")/" +
-	// 	os.Getenv("DB_NAME") + "?charset=utf8mb4&parseTime=True"
+	// Hardcoded DSN for MySQL connection
+	dsn := "root:edTyDluWiIGDqijgpDygEVvoqdPNXfzL@tcp(junction.proxy.rlwy.net:51729)/railway?charset=utf8mb4&parseTime=True&loc=Local"
 
 	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	if err != nil {
 		log.Fatalln(err.Error())
 	}
 
-	// db.Migrate(db.DB)
+	// Perform migrations
+	Migrate(db)
+
 	DBConn = db
 }
 
